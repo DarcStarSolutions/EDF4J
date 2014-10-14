@@ -1,19 +1,14 @@
-package test.ru.mipt.edf;
+package ru.mipt.edf;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
-import org.junit.Test;
-
-import ru.mipt.edf.EDFAnnotationFileHeaderBuilder;
-import ru.mipt.edf.EDFHeader;
-import ru.mipt.edf.EDFParser;
-import ru.mipt.edf.EDFWriter;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class EDFAnnotationsWriterTest {
 

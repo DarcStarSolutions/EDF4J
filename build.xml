@@ -21,41 +21,41 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
      ====================================================================== -->
 <project name="edf4j" default="build">
 
-	<property name="version" value="1.0b" />
-	<property name="name" value="edf4j-${version}" />
+    <property name="version" value="1.0b"/>
+    <property name="name" value="edf4j-${version}"/>
 
-	<property name="src" location="${basedir}/src" />
-	<property name="resources" location="${basedir}/resources" />
-	<property name="bin" location="${basedir}/bin" />
-	<property name="dist" location="${basedir}" />
-	<property name="doc" location="${basedir}/doc" />
+    <property name="src" location="${basedir}/src"/>
+    <property name="resources" location="/src/main/resources"/>
+    <property name="bin" location="${basedir}/bin"/>
+    <property name="dist" location="${basedir}"/>
+    <property name="doc" location="${basedir}/doc"/>
 
-	<target name="init">
-		<tstamp />
-		<delete dir="${bin}" />
-		<mkdir dir="${bin}" />
-	</target>
+    <target name="init">
+        <tstamp/>
+        <delete dir="${bin}"/>
+        <mkdir dir="${bin}"/>
+    </target>
 
-	<target name="compile" depends="init">
-		<javac srcdir="${src}" destdir="${bin}" />
-		<copy todir="${bin}">
-			<fileset dir="${resources}">
-				<exclude name="*.bak" />
-			</fileset>
-		</copy>
-	</target>
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${bin}"/>
+        <copy todir="${bin}">
+            <fileset dir="/src/main/resources">
+                <exclude name="*.bak"/>
+            </fileset>
+        </copy>
+    </target>
 
-	<target name="build" depends="clean,compile">
-		<jar basedir="${bin}" destfile="${basedir}/${name}.jar">
-			<manifest>
-				<attribute name="Main-Class" value="ru.mipt.edf.EDF" />
-			</manifest>
-		</jar>
-	</target>
+    <target name="build" depends="clean,compile">
+        <jar basedir="${bin}" destfile="${basedir}/${name}.jar">
+            <manifest>
+                <attribute name="Main-Class" value="ru.mipt.edf.EDF"/>
+            </manifest>
+        </jar>
+    </target>
 
-	<target name="clean">
-		<delete dir="${bin}" />
-		<delete file="${basedir}/${name}.jar" />
-	</target>
+    <target name="clean">
+        <delete dir="${bin}"/>
+        <delete file="${basedir}/${name}.jar"/>
+    </target>
 
 </project>
